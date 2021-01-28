@@ -7,8 +7,12 @@
   "repository": "https://github.com/flatiron-labs/design-system.git",
   "author": "Tom Milewski <tmilewski@gmail.com>",
   "license": "MIT",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "cross-env BABEL_ENV=production babel src -d dist --extensions \".js,.jsx,.ts,.tsx\" --ignore \"**/*test.js\" --ignore \"**/*stories.js\"",
+    "build": "yarn clean && cross-env BABEL_ENV=production babel src -d dist --copy-files --extensions \".js,.jsx,.ts,.tsx\" --ignore \"**/*test.js\" --ignore \"**/*stories.js\"",
+    "clean": "rm -rf dist",
     "test": "",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
@@ -38,7 +42,6 @@
     "@babel/cli": "^7.12.10",
     "@babel/core": "^7.12.10",
     "@babel/node": "^7.12.10",
-    "@babel/plugin-proposal-object-rest-spread": "^7.12.1",
     "@babel/plugin-transform-runtime": "^7.12.10",
     "@babel/preset-env": "^7.12.10",
     "@babel/preset-react": "^7.12.10",
@@ -53,6 +56,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "auto": "^10.13.2",
+    "babel-plugin-macros": "^3.0.1",
     "babel-preset-react-app": "^10.0.0",
     "cross-env": "^7.0.3",
     "prettier": "^2.2.1",
