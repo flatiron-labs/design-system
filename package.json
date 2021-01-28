@@ -1,6 +1,6 @@
 {
   "name": "fsds",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "private": false,
   "description": "FIS Design System",
   "main": "dist/index.js",
