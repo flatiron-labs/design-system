@@ -6,12 +6,10 @@
     "styled-components": "^5.2.1"
   },
   "scripts": {
-    "start": "react-scripts start",
     "build": "cross-env BABEL_ENV=production babel src -d dist --extensions \".js,.jsx,.ts,.tsx\" --ignore \"**/*test.js\" --ignore \"**/*stories.js\"",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "test": "",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "eslintConfig": {
     "extends": [
@@ -49,6 +47,7 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "babel-preset-react-app": "^10.0.0",
     "cross-env": "^7.0.3",
     "prettier": "^2.2.1",
     "react": "^17.0.1",
@@ -56,19 +55,13 @@
     "react-scripts": "4.0.1",
     "web-vitals": "^0.2.4"
   },
+  "peerDependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
   "description": "FIS Design System",
   "main": "dist/index.js",
   "repository": "https://github.com/flatiron-labs/design-system.git",
   "author": "Tom Milewski <tmilewski@gmail.com>",
-  "license": "MIT",
-  "babel": {
-    "presets": [
-      [
-        "react-app",
-        {
-          "absoluteRuntime": false
-        }
-      ]
-    ]
-  }
+  "license": "MIT"
 }

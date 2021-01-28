@@ -17,8 +17,6 @@ const StyledButton = styled.button`
   display: inline-block;
   line-height: 1;
 
-  ${props => props.backgroundColor}
-
   ${props =>
     props.primary && `
       color: white;
@@ -54,6 +52,8 @@ const StyledButton = styled.button`
       padding: 12px 24px;
     `
   }
+
+  ${props => `background-color: ${props.backgroundColor};`}
 `
 
 export const Button = ({ label, ...props }) => {
