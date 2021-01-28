@@ -2,10 +2,12 @@
   "name": "design-system",
   "version": "0.1.0",
   "private": false,
-  "dependencies": {},
+  "dependencies": {
+    "styled-components": "^5.2.1"
+  },
   "scripts": {
     "start": "react-scripts start",
-    "build": "cross-env BABEL_ENV=production babel src -d dist",
+    "build": "cross-env BABEL_ENV=production babel src -d dist --extensions \".js,.jsx,.ts,.tsx\" --ignore \"**/*test.js\" --ignore \"**/*stories.js\"",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
@@ -29,18 +31,15 @@
       "last 1 safari version"
     ]
   },
-  "babel": {
-    "presets": [
-      [
-        "react-app",
-        {
-          "absoluteRuntime": false
-        }
-      ]
-    ]
-  },
   "devDependencies": {
     "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/node": "^7.12.10",
+    "@babel/plugin-proposal-object-rest-spread": "^7.12.1",
+    "@babel/plugin-transform-runtime": "^7.12.10",
+    "@babel/preset-env": "^7.12.10",
+    "@babel/preset-react": "^7.12.10",
+    "@babel/preset-typescript": "^7.12.7",
     "@storybook/addon-actions": "^6.1.15",
     "@storybook/addon-essentials": "^6.1.15",
     "@storybook/addon-links": "^6.1.15",
@@ -61,5 +60,15 @@
   "main": "dist/index.js",
   "repository": "https://github.com/flatiron-labs/design-system.git",
   "author": "Tom Milewski <tmilewski@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "babel": {
+    "presets": [
+      [
+        "react-app",
+        {
+          "absoluteRuntime": false
+        }
+      ]
+    ]
+  }
 }
