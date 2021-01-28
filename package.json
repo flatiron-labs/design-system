@@ -2,9 +2,12 @@
   "name": "design-system",
   "version": "0.1.0",
   "private": false,
-  "dependencies": {
-    "styled-components": "^5.2.1"
-  },
+  "description": "FIS Design System",
+  "main": "dist/index.js",
+  "repository": "https://github.com/flatiron-labs/design-system.git",
+  "author": "Tom Milewski <tmilewski@gmail.com>",
+  "license": "MIT",
+  
   "scripts": {
     "build": "cross-env BABEL_ENV=production babel src -d dist --extensions \".js,.jsx,.ts,.tsx\" --ignore \"**/*test.js\" --ignore \"**/*stories.js\"",
     "test": "",
@@ -28,6 +31,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "dependencies": {
+    "styled-components": "^5.2.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.10",
@@ -58,10 +64,5 @@
   "peerDependencies": {
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
-  },
-  "description": "FIS Design System",
-  "main": "dist/index.js",
-  "repository": "https://github.com/flatiron-labs/design-system.git",
-  "author": "Tom Milewski <tmilewski@gmail.com>",
-  "license": "MIT"
+  }
 }
