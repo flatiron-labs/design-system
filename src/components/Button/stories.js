@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 
-import { Button } from '.';
+import { Button } from '.'
 
 const details = {
   title: 'Buttons/Default',
@@ -8,31 +8,34 @@ const details = {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-};
+  parameters: {
+    status: 'beta' // stable | beta | deprecated
+  }
+}
 
 export default details
 
-const Template = (args) => <Button {...args} />;
+const Template = (args) => <Button {...args} />
 
-export const Primary = Template.bind({});
+export const Primary = Template.bind({})
 Primary.args = {
   primary: true,
-  label: 'Button',
-};
+  label: 'Button'
+}
 
-export const Secondary = Template.bind({});
+export const Secondary = Template.bind({})
 Secondary.args = {
-  label: 'Button',
-};
+  label: 'Button'
+}
 
-export const Large = Template.bind({});
+export const Large = Template.bind({})
 Large.args = {
   size: 'large',
-  label: 'Button',
-};
+  label: 'Button'
+}
 
-export const Small = Template.bind({});
+export const Small = Template.bind({})
 Small.args = {
   size: 'small',
-  label: 'Button',
-};
+  label: 'Button'
+}
