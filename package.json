@@ -15,9 +15,10 @@
     "build:compile": "cross-env NODE_ENV=production BABEL_ENV=production babel src -d dist --copy-files --no-copy-ignored --extensions .js,.jsx,.ts,.tsx,.mdx --ignore **/*.test.tsx,**/*.stories.tsx,**/*.mdx",
     "build:pre": "rm -rf dist",
     "build:post": "rm -rf dist/assets",
-    "fmt:eslint": "yarn eslint . --ext .js,.jsx,.ts,.tsx",
+    "fmt:eslint": "yarn eslint . --ext .js,.jsx,.ts,.tsx --max-warnings 0",
     "fmt:prettier": "yarn prettier --write .",
     "fmt:prettier:check": "prettier --check .",
+    "fmt:staged": "yarn fmt:eslint && yarn fmt:prettier:check",
     "storybook": "start-storybook --port 6006 --quiet",
     "storybook:build": "build-storybook",
     "test": "jest",
@@ -88,6 +89,7 @@
     "cross-env": "^7.0.3",
     "eslint": "^7.19.0",
     "eslint-config-prettier": "^7.2.0",
+    "lint-staged": "^10.5.3",
     "prettier": "2.2.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -98,5 +100,9 @@
   "peerDependencies": {
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": "eslint --max-warnings 0",
+    "*.{js,jsx,ts,tsx,json,css,md}": "prettier --write"
   }
 }

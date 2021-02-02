@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Cleans all unused containers
+docker-compose rm -f
