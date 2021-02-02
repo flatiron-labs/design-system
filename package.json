@@ -18,10 +18,10 @@
     "fmt:eslint": "yarn eslint . --ext .js,.jsx,.ts,.tsx",
     "fmt:prettier": "yarn prettier --write .",
     "fmt:prettier:check": "prettier --check .",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook --port 6006 --quiet",
     "storybook:build": "build-storybook",
     "test": "jest",
-    "test:watch": "jest --watch",
+    "test:watch": "jest --watchAll",
     "test:coverage": "jest --coverage"
   },
   "eslintConfig": {
