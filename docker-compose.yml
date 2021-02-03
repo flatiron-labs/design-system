@@ -1,33 +1,21 @@
 version: "3.8"
 
-# docker-compose build --no-cache
-
-x-common: &common
-  build:
-    context: ./
-    target: base
-  working_dir: /app
-  volumes:
-    - .:/app
-    - node_modules:/app/node_modules
-
-x-env-development: &env-development
-  environment:
-    - NODE_ENV=development
-    - BABEL_ENV=development
-
 services:
-  yarn:
-    <<: *common
-    <<: *env-development
-    entrypoint: yarn
-
-  storybook:
-    <<: *common
-    <<: *env-development
+  node:
+    build:
+      context: .
+      args:
+        - NODE_ENV=development
+    command: yarn storybook
     ports:
       - "6006:6006"
-    command: yarn storybook
+    volumes:
+      - .:/workspace/app:delegated
+      - ./package.json:/workspace/package.json
+      - ./package-lock.json:/workspace/package-lock.json
+      - node_modules:/workspace/app/node_modules
+    environment:
+      - NODE_ENV=development
 
 volumes:
   node_modules:

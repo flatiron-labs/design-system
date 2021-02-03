@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker-compose run --rm yarn fmt:staged
+docker-compose exec -T node yarn fmt:staged
