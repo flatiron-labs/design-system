@@ -12,7 +12,7 @@ services:
     volumes:
       - .:/workspace/app:delegated
       - ./package.json:/workspace/package.json
-      - ./package-lock.json:/workspace/package-lock.json
+      - ./yarn.lock:/workspace/yarn.lock
       - node_modules:/workspace/app/node_modules
     environment:
       - NODE_ENV=development
