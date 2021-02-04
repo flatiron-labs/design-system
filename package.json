@@ -1,34 +1,26 @@
 {
   "name": "@flatiron-school/ui",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "private": false,
   "description": "FIS Design System",
-  "main": "dist/index.js",
   "repository": "https://github.com/flatiron-labs/design-system.git",
   "author": "Tom Milewski <tmilewski@gmail.com>",
   "license": "MIT",
+  "main": "build/index.js",
+  "module": "build/index.es.js",
   "files": [
-    "dist"
+    "build"
   ],
   "scripts": {
-    "build": "yarn build:pre && yarn build:compile && yarn build:post",
-    "build:compile": "cross-env NODE_ENV=production BABEL_ENV=production babel src -d dist --copy-files --no-copy-ignored --extensions .js,.jsx,.ts,.tsx,.mdx --ignore **/*.test.tsx,**/*.stories.tsx,**/*.mdx",
-    "build:pre": "rm -rf dist",
-    "build:post": "rm -rf dist/assets",
+    "build": "rm -rf build/*; rollup -c",
     "fmt:eslint": "yarn eslint . --ext .js,.jsx,.ts,.tsx --max-warnings 0",
     "fmt:prettier": "yarn prettier --write .",
-    "fmt:prettier:check": "prettier --check .",
+    "fmt:prettier:check": "yarn prettier --check .",
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [
@@ -42,72 +34,103 @@
       "last 1 safari version"
     ]
   },
-  "jest": {
-    "injectGlobals": true,
-    "setupFilesAfterEnv": [
-      "@testing-library/jest-dom/extend-expect",
-      "<rootDir>/src/setupTests.js"
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended",
+      "prettier",
+      "prettier/@typescript-eslint"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint"
     ]
-  },
-  "dependencies": {
-    "@types/react": "^17.0.1",
-    "@types/styled-components": "^5.1.7",
-    "styled-components": "^5.2.1",
-    "typescript": "^4.1.3"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.12.13",
-    "@babel/core": "^7.12.13",
-    "@babel/node": "^7.12.13",
-    "@babel/plugin-transform-runtime": "^7.12.13",
-    "@babel/preset-env": "^7.12.13",
-    "@babel/preset-react": "^7.12.13",
-    "@babel/preset-typescript": "^7.12.13",
-    "@etchteam/storybook-addon-status": "^2.1.0",
-    "@storybook/addon-a11y": "^6.1.16",
-    "@storybook/addon-actions": "^6.1.16",
-    "@storybook/addon-essentials": "^6.1.16",
-    "@storybook/addon-links": "^6.1.16",
-    "@storybook/node-logger": "^6.1.16",
-    "@storybook/preset-create-react-app": "^3.1.5",
-    "@storybook/react": "^6.1.16",
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.2.5",
-    "@testing-library/user-event": "^12.6.3",
-    "@types/jest": "^26.0.20",
-    "@types/node": "^14.14.22",
-    "@types/react-dom": "^17.0.0",
-    "@typescript-eslint/eslint-plugin": "^4.14.2",
-    "@typescript-eslint/parser": "^4.14.2",
-    "auto": "^10.13.4",
-    "babel-plugin-jsx-remove-data-test-id": "^2.1.3",
-    "babel-plugin-macros": "^3.0.1",
-    "babel-plugin-styled-components": "^1.12.0",
-    "babel-preset-react-app": "^10.0.0",
-    "chromatic": "^5.6.1",
-    "cross-env": "^7.0.3",
-    "eslint": "^7.19.0",
-    "eslint-config-prettier": "^7.2.0",
-    "husky": ">=4",
-    "lint-staged": ">=10",
-    "prettier": "2.2.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-scripts": "^4.0.2",
-    "ts-jest": "^26.5.0",
-    "web-vitals": "^1.1.0"
-  },
-  "peerDependencies": {
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1"
   },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
     }
   },
+  "jest": {
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "injectGlobals": true,
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "testMatch": [
+      "**/*.test.(ts|tsx)"
+    ],
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-dom/extend-expect",
+      "<rootDir>/jest.setup.ts"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    }
+  },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": "yarn fmt:eslint",
-    "*.{js,jsx,ts,tsx,json,css,md}": "yarn fmt:prettier"
+    "*.{js,jsx,ts,tsx}": "yarn eslint",
+    "*.{js,jsx,ts,tsx,json,css,md,mdx,yml,yaml}": "yarn prettier --write"
+  },
+  "prettier": {
+    "printWidth": 120,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "none",
+    "arrowParens": "avoid"
+  },
+  "peerDependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "styled-components": "^5.2.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.13",
+    "@etchteam/storybook-addon-status": "^2.1.0",
+    "@rollup/plugin-commonjs": "^17.1.0",
+    "@rollup/plugin-node-resolve": "^11.1.1",
+    "@storybook/addon-a11y": "^6.1.17",
+    "@storybook/addon-actions": "^6.1.17",
+    "@storybook/addon-essentials": "^6.1.17",
+    "@storybook/addon-links": "^6.1.17",
+    "@storybook/node-logger": "^6.1.17",
+    "@storybook/preset-create-react-app": "^3.1.5",
+    "@storybook/react": "^6.1.17",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.2.5",
+    "@testing-library/user-event": "^12.6.3",
+    "@types/jest": "^26.0.20",
+    "@types/node": "^14.14.25",
+    "@types/react": "^17.0.1",
+    "@types/react-dom": "^17.0.0",
+    "@types/styled-components": "^5.1.7",
+    "@typescript-eslint/eslint-plugin": "^4.14.2",
+    "@typescript-eslint/parser": "^4.14.2",
+    "auto": "^10.15.0",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "chromatic": "^5.6.1",
+    "eslint": "^7.19.0",
+    "eslint-config-prettier": "^7.2.0",
+    "husky": ">=4",
+    "jest": "^26.6.3",
+    "lint-staged": ">=10",
+    "prettier": "2.2.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "^4.0.2",
+    "rollup": "^2.38.4",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.29.0",
+    "styled-components": "^5.2.1",
+    "ts-jest": "^26.5.0",
+    "typescript": "^4.1.3",
+    "web-vitals": "^1.1.0"
   }
 }
