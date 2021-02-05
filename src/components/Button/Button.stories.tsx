@@ -1,8 +1,8 @@
 import React from 'react'
-import { Button } from './Button'
-import { Props } from './Button.types'
-import { Story, Meta } from '@storybook/react/types-6-0'
 import { action } from '@storybook/addon-actions'
+import { Story, Meta } from '@storybook/react'
+import Button from './Button'
+import { Props } from './Button.types'
 
 export default {
   title: 'Inputs/Button',
