@@ -66,8 +66,7 @@
       "**/*.test.(ts|tsx)"
     ],
     "setupFilesAfterEnv": [
-      "@testing-library/jest-dom/extend-expect",
-      "<rootDir>/jest.setup.ts"
+      "@testing-library/jest-dom/extend-expect"
     ],
     "transform": {
       "^.+\\.(ts|tsx)$": "ts-jest"
