@@ -50,11 +50,6 @@
       "@typescript-eslint"
     ]
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "jest": {
     "roots": [
       "<rootDir>/src"
