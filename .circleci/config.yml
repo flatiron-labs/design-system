@@ -24,11 +24,11 @@ jobs:
 
       - run:
           name: Lint Code
-          command: yarn fmt:eslint
+          command: yarn lint:eslint .
 
       - run:
           name: Check Formatting
-          command: yarn fmt:prettier:check
+          command: yarn lint:prettier:check .
 
       - run:
           name: Run Tests
