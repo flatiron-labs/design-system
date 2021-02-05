@@ -13,5 +13,5 @@
     "esModuleInterop": true
   },
   "include": ["**/*"],
-  "exclude": ["**/*.stories.tsx", "**/*.test.tsx", "**/*.test.ts", "docs"]
+  "exclude": ["**/*.stories.tsx", "**/*.test.tsx", "**/*.test.ts", "docs", "build"]
 }
