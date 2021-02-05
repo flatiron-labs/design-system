@@ -1,6 +1,6 @@
 import React from 'react'
-import { Button } from './Button/Button'
 import { render, screen } from '@testing-library/react'
+import Button from './Button/Button'
 
 describe('component re-exporting', () => {
   const testId = 'test-component'

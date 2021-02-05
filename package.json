@@ -13,7 +13,7 @@
   ],
   "scripts": {
     "build": "rm -rf build/*; rollup -c",
-    "lint:eslint": "eslint --ext .js,.jsx,.ts,.tsx --max-warnings 0",
+    "lint:eslint": "eslint --max-warnings 0",
     "lint:prettier": "prettier --write",
     "lint:prettier:check": "prettier --check",
     "postinstall": "husky install",
@@ -38,17 +38,116 @@
     ]
   },
   "eslintConfig": {
-    "root": true,
+    "env": {
+      "browser": true,
+      "es2020": true,
+      "jest": true,
+      "node": true
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaVersion": 2020,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "plugins": [
+      "@typescript-eslint",
+      "jsx-a11y",
+      "react"
+    ],
     "extends": [
-      "eslint:recommended",
+      "airbnb",
+      "airbnb/hooks",
       "plugin:@typescript-eslint/recommended",
+      "plugin:react/recommended",
+      "plugin:jsx-a11y/recommended",
+      "plugin:import/errors",
+      "plugin:import/warnings",
+      "plugin:import/typescript",
       "prettier",
       "prettier/@typescript-eslint"
     ],
-    "parser": "@typescript-eslint/parser",
-    "plugins": [
-      "@typescript-eslint"
-    ]
+    "rules": {
+      "react/jsx-filename-extension": [
+        1,
+        {
+          "extensions": [
+            ".ts",
+            ".tsx"
+          ]
+        }
+      ],
+      "import/extensions": "off",
+      "import/no-extraneous-dependencies": [
+        "error",
+        {
+          "devDependencies": [
+            "!*/*.test.js"
+          ]
+        }
+      ],
+      "react/prop-types": "off",
+      "react/react-in-jsx-scope": "off",
+      "jsx-a11y/anchor-is-valid": "off",
+      "react/jsx-props-no-spreading": [
+        "error",
+        {
+          "custom": "ignore"
+        }
+      ],
+      "react/no-unescaped-entities": "off",
+      "import/no-cycle": [
+        0,
+        {
+          "ignoreExternal": true
+        }
+      ],
+      "prefer-const": "off",
+      "no-use-before-define": "off",
+      "@typescript-eslint/no-use-before-define": [
+        "error",
+        {
+          "functions": false,
+          "classes": false,
+          "variables": true
+        }
+      ]
+    },
+    "overrides": [
+      {
+        "files": [
+          "**/*.json"
+        ],
+        "rules": {
+          "no-unused-expressions": "off"
+        }
+      }
+    ],
+    "settings": {
+      "import/resolver": {
+        "babel-module": {
+          "extensions": [
+            ".js",
+            ".jsx",
+            ".ts",
+            ".tsx"
+          ]
+        },
+        "node": {
+          "extensions": [
+            ".js",
+            ".jsx",
+            ".ts",
+            ".tsx"
+          ],
+          "paths": [
+            "src"
+          ]
+        }
+      }
+    }
   },
   "jest": {
     "roots": [
@@ -109,10 +208,13 @@
     "@typescript-eslint/eslint-plugin": "^4.14.2",
     "@typescript-eslint/parser": "^4.14.2",
     "babel-loader": "^8.2.2",
+    "babel-plugin-module-resolver": "^4.1.0",
     "babel-preset-react-app": "^10.0.0",
     "chromatic": "^5.6.1",
     "eslint": "^7.19.0",
+    "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^7.2.0",
+    "eslint-import-resolver-babel-module": "^5.2.0",
     "husky": "^5.0.8",
     "jest": "^26.6.3",
     "lint-staged": ">=10",
