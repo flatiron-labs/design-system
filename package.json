@@ -13,9 +13,9 @@
   ],
   "scripts": {
     "build": "rm -rf build/*; rollup -c",
-    "fmt:eslint": "eslint . --ext .js,.jsx,.ts,.tsx --max-warnings 0",
-    "fmt:prettier": "prettier --write .",
-    "fmt:prettier:check": "prettier --check .",
+    "lint:eslint": "eslint --ext .js,.jsx,.ts,.tsx --max-warnings 0",
+    "lint:prettier": "prettier --write",
+    "lint:prettier:check": "prettier --check",
     "postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
     "postpublish": "pinst --enable",
@@ -71,8 +71,8 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": "yarn eslint",
-    "*.{js,jsx,ts,tsx,json,css,md,mdx,yml,yaml}": "yarn prettier --write"
+    "*.{js,jsx,ts,tsx}": "yarn eslint .",
+    "*.{js,jsx,ts,tsx,json,css,md,mdx,yml,yaml}": "yarn prettier --check ."
   },
   "prettier": {
     "printWidth": 120,
