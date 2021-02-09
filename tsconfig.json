@@ -10,7 +10,8 @@
     "jsx": "react",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "types": ["cypress"]
   },
   "include": ["**/*"],
   "exclude": ["**/*.stories.tsx", "**/*.test.tsx", "**/*.test.ts", "docs", "build"]
