@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": "src",
     "declaration": true,
     "declarationDir": "build",
     "module": "esnext",
@@ -10,7 +9,11 @@
     "jsx": "react",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@*": ["./*"]
+    }
   },
   "include": ["**/*"],
   "exclude": ["**/*.stories.tsx", "**/*.test.tsx", "**/*.test.ts", "docs", "build"]

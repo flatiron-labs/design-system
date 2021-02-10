@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { useWindowWidth } from '@react-hook/window-size'
-import { HamburgerIcon } from '../../assets/Icons/index'
-import { black, greyDarkest } from '../../assets/Styles/colors'
+import { Hamburger } from '../Icons/index'
+import colors from '@styles/colors'
 import { Props } from './SideNav.types'
 
-const StyledDiv = styled.div<{ mobileOpen?: boolean; mobile?: boolean }>`
-  background-color: ${black};  
+const StyledNav = styled.nav<{ mobileOpen?: boolean; mobile?: boolean }>`
+  background-color: ${colors.black};  
   border: 4px;
-  border-color: ${greyDarkest};
+  border-color: ${colors.greyDarkest};
   border-style: none solid none none;
   font-family: 'Fira Code';
   height: 100%;
@@ -33,7 +33,7 @@ const StyledDiv = styled.div<{ mobileOpen?: boolean; mobile?: boolean }>`
 `}
 }`
 
-const StyledHamburgerIcon = styled(HamburgerIcon)`
+const StyledHamburgerIcon = styled(Hamburger)`
   padding-left: 9px;
 }
 `
@@ -48,9 +48,9 @@ export const SideNav = ({ children, ...props }: Props): JSX.Element => {
   }
 
   return (
-    <StyledDiv {...props} mobile={mobile} mobileOpen={mobileOpen}>
+    <StyledNav {...props} mobile={mobile} mobileOpen={mobileOpen}>
       {(!mobile || (mobileOpen && mobile)) && <> {children} </>}
       {mobile && !mobileOpen && <StyledHamburgerIcon onClick={openSideNav} />}
-    </StyledDiv>
+    </StyledNav>
   )
 }

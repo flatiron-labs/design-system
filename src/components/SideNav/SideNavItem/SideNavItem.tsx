@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { black, greyLight, greyDarkest, turq, white } from '../../../assets/Styles/colors'
+import colors from '@styles/colors'
 import { Props } from './SideNavItem.types'
 
 const StyledDiv = styled.div<{ active?: boolean }>`
@@ -8,15 +8,15 @@ const StyledDiv = styled.div<{ active?: boolean }>`
     props.active &&
     `
     border: 4px;
-    border-color: ${greyDarkest};
+    border-color: ${colors.greyDarkest};
     border-style: solid none solid solid;
-    box-shadow: 6px 0px 0px -3px ${black};
+    box-shadow: 6px 0px 0px -3px ${colors.black};
     margin-left: 15px;
   `}
 `
 
 const StyledA = styled.a<{ active?: boolean }>`
-  color: ${greyLight};
+  color: ${colors.greyLight};
   display: flex;    
   font-family: 'Fira Code';
   font-size: 20px;
@@ -29,7 +29,7 @@ const StyledA = styled.a<{ active?: boolean }>`
   ${props =>
     props.active &&
     `
-    color: ${turq};
+    color: ${colors.turq};
     padding-right: 23px;
     padding-left: 20px;
   `}
@@ -37,7 +37,7 @@ const StyledA = styled.a<{ active?: boolean }>`
     !props.active &&
     `
     &:hover {
-      color: ${white};
+      color: ${colors.white};
     }
   `}
 }
