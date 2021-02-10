@@ -16,5 +16,5 @@
     }
   },
   "include": ["**/*"],
-  "exclude": ["**/*.stories.tsx", "**/*.test.tsx", "**/*.test.ts", "docs", "build"]
+  "exclude": ["docs", "build", "node_modules", "bin"]
 }

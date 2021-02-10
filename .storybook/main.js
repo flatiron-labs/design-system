@@ -1,3 +1,5 @@
+const { TsconfigPathsPlugin } = require('tsconfig-paths-webpack-plugin')
+
 module.exports = {
   stories: [
     '../src/docs/Introduction.stories.mdx',
@@ -12,6 +14,7 @@ module.exports = {
     '@storybook/preset-create-react-app'
   ],
   webpackFinal: async config => {
+    config.resolve.plugins = [new TsconfigPathsPlugin({ extensions: config.resolve.extensions })]
     config.module.rules.push({
       test: /\.(ts|tsx)$/,
       loader: require.resolve('babel-loader'),
