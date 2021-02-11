@@ -1,11 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import imgSpinner from './spinner.webp'
-
+import font from '~/styles/typography'
 import { Props, StyleProps } from './Button.types'
 
 const StyledButton = styled.button<StyleProps>`
-  font-family: 'Fira Code';
+  font-family: ${font.firaCode};
   background-color: black;
   border-radius: 0;
   text-align: center;
@@ -61,11 +60,6 @@ const StyledButton = styled.button<StyleProps>`
     `}
 `
 
-const Button = ({ children, ...props }: Props): JSX.Element => (
-  <StyledButton {...props}>
-    <img src={imgSpinner} alt="Loading..." />
-    {children}
-  </StyledButton>
-)
+const Button = ({ children, ...props }: Props): JSX.Element => <StyledButton {...props}>{children}</StyledButton>
 
 export default Button

@@ -71,6 +71,12 @@
       "prettier/@typescript-eslint"
     ],
     "rules": {
+      "import/export": [
+        0,
+        {
+          "file": "index.ts"
+        }
+      ],
       "react/jsx-filename-extension": [
         1,
         {
@@ -237,5 +243,8 @@
   },
   "resolutions": {
     "styled-components": "^5"
+  },
+  "dependencies": {
+    "@react-hook/window-size": "^3.0.7"
   }
 }
