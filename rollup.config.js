@@ -9,7 +9,7 @@ import analyze from 'rollup-plugin-analyzer'
 import pkg from './package.json'
 
 export default {
-  perf: true,
+  perf: false,
   input: 'src/index.ts',
   output: [
     {
@@ -34,7 +34,11 @@ export default {
       main: true,
       browser: true
     }),
-    typescript({ rollupCommonJSResolveHack: true, clean: true }),
+    typescript({
+      clean: true,
+      rollupCommonJSResolveHack: true,
+      exclude: ['**/*.test.ts', '**/*.stories.ts', '**/*.test.d.ts', '**/*.stories.d.ts']
+    }),
     commonjs(),
     terser(),
     analyze({ summaryOnly: true })
