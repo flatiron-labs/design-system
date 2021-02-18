@@ -17,7 +17,10 @@ export const Color = {
 
 export const Font = {
   firaCode: 'Fira Code',
-  gotcha: 'Gotcha'
+  gotcha: 'Gotcha',
+  size: {
+    base: `1 rem`
+  }
 }
 
 export const Breakpoint = {

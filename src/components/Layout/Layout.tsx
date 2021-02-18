@@ -10,17 +10,22 @@ export interface LayoutProps extends GlobalStyledProps {
 const GlobalStyle = createGlobalStyle<GlobalStyledProps>`
   body {
     background-color: ${props => (props.lightMode ? Color.white : Color.black)};
-    font-family: ${Font.firaCode};
     color: ${props => (props.lightMode ? Color.black : Color.white)};
+    font-family: ${Font.firaCode}, monospace;
   }
   button {
     background-color: ${props => (props.lightMode ? Color.white : Color.black)};
-    color: ${props => (props.lightMode ? Color.black : Color.turq)};
     border-color: ${props => (props.lightMode ? Color.black : Color.turq)};
-    font-family: ${Font.firaCode};
+    color: ${props => (props.lightMode ? Color.black : Color.turq)};
+    font-family: ${Font.firaCode}, monospace;
   }
   div {
-    font-family: ${Font.firaCode};
+    font-family: ${Font.firaCode}, monospace;
+  }
+  p {
+    font-family: ${Font.firaCode}, monospace;
+    font-size: ${Font.size.base};
+    line-height: 1.5;
   }
 `
 

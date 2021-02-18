@@ -15,6 +15,7 @@ describe('SideNav', () => {
   }
 
   it('should render a side nav', () => {
+    jest.spyOn(useWindowWidth, 'useWindowWidth').mockImplementation(() => 900)
     renderComponent()
     screen.getByTestId(testId)
   })

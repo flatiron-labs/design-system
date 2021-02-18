@@ -5,6 +5,9 @@ exports[`Layout should append the global styles 1`] = `
   data-styled="active"
   data-styled-version="5.2.1"
 >
-  body{background-color:rgba(3,4,22,1);font-family:Fira Code;color:rgba(255,255,255,1);}
+  body{background-color:rgba(3,4,22,1);color:rgba(255,255,255,1);font-family:Fira Code,monospace;}
+  button{background-color:rgba(3,4,22,1);border-color:rgba(0,239,225,1);color:rgba(0,239,225,1);font-family:Fira Code,monospace;}
+  div{font-family:Fira Code,monospace;}
+  p{font-family:Fira Code,monospace;font-size:1 rem;line-height:1.5;}
 </style>
 `;
