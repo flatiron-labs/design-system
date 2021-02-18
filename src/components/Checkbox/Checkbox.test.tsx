@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 
-import { Checkbox, CheckboxProps } from '.'
+import { Checkbox } from '.'
 
 describe('Checkbox', () => {
   const testId = 'test-component'
