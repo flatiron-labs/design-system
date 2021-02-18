@@ -7,59 +7,43 @@ export interface StyledSideNavItemProps {
 }
 
 export interface SideNavItemProps extends StyledSideNavItemProps {
-  'data-testid'?: string
-  children?: React.ReactNode
   active?: boolean
+  children?: React.ReactNode
   closed?: boolean
+  'data-testid'?: string
+  icon?: React.ReactNode
   handleClose?(): void
 }
 
 const StyledDiv = styled.div<StyledSideNavItemProps>`
-  ${props =>
-    props.active &&
-    `xxx
-    border: 4px;
-    border-color: ${Color.greyDarkest};
-    border-style: solid none solid solid;
-    box-shadow: 6px 0px 0px -3px ${Color.black};
-    margin-left: 15px;
-  `}
-`
-
-const StyledA = styled.a<StyledSideNavItemProps>`
-  color: ${Color.greyLight};
+  background-color: ${props => (props.active ? Color.greyDarkest : 'transparent')};
+  box-shadow: ${props => (props.active ? `4px 0px 0px 0px ${Color.greyDarkest}` : 0)};
   display: flex;
   font-family: 'Fira Code';
   font-size: 20px;
+  height: 40px;
   justify-content: center;
-  padding: 5px;
-  padding-left: 15px;
+  padding-top: 15px;
   transition: color 0.3s linear;
+`
+
+const StyledA = styled.a<StyledSideNavItemProps>`
+  color: ${props => (props.active ? Color.turq : Color.greyLight)};
+  padding-left: 10px;
   &:hover {
+    color: ${props => (!props.active ? Color.white : Color.turq)};
     cursor: pointer;
   }
-  ${props =>
-    props.active &&
-    `
-    color: ${Color.turq};
-    padding-right: 23px;
-    padding-left: 20px;
-  `}
-  ${props =>
-    !props.active &&
-    `
-    &:hover {
-      color: ${Color.white};
-    }
-  `}
 }
 `
 
 export const SideNavItem = ({ children, ...props }: SideNavItemProps): JSX.Element => {
-  const { active, 'data-testid': dataTestId } = props
+  const { active, 'data-testid': dataTestId, icon } = props
+
   return (
     <div data-testid={dataTestId}>
       <StyledDiv active={active}>
+        {icon && icon}
         <StyledA active={active}>{children}</StyledA>
       </StyledDiv>
     </div>

@@ -22,7 +22,7 @@ const Template: Story = (args: SpinnerProps) => (
   </StyledContainer>
 )
 
-export const Basic = Template.bind({})
+export const Default = Template.bind({})
 
 export const Resized = Template.bind({})
 Resized.args = {

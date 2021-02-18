@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { Story, Meta } from '@storybook/react'
 import { SideNav, SideNavProps, SideNavItem } from '.'
-import { Layout } from '../Layout'
+import { Icon } from '../Icon'
+import { Color } from '~/styles'
 
 export default {
   title: 'Navigation/SideNav',
@@ -15,13 +16,13 @@ const Template: Story<SideNavProps> = () => {
     setOpen(true)
   }
   return (
-    <Layout>
-      <SideNav handleClose={handleClose} isOpen={isOpen}>
-        <SideNavItem>Home</SideNavItem>
-        <SideNavItem active>Profile</SideNavItem>
-        <SideNavItem>Settings</SideNavItem>
-      </SideNav>
-    </Layout>
+    <SideNav handleClose={handleClose} isOpen={isOpen}>
+      <SideNavItem icon={<Icon.Home />}>Home</SideNavItem>
+      <SideNavItem icon={<Icon.User color={Color.turq} />} active>
+        Profile
+      </SideNavItem>
+      <SideNavItem icon={<Icon.Settings />}>Settings</SideNavItem>
+    </SideNav>
   )
 }
 

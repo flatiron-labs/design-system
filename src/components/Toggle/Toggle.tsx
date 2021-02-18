@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Color, Font } from '~/styles'
+import { Color } from '~/styles'
+import { GlobalStyledProps } from '~/styles/global.types'
 
-export interface ToggleProps {
+export interface ToggleProps extends GlobalStyledProps {
   'data-testid'?: string
   children?: React.ReactNode
   label?: string
@@ -13,25 +14,23 @@ const StyledDiv = styled.div`
   flex-direction: row;
   align-items: flex-end;
   font-size: 15px;
-  font-family: ${Font.firaCode};
   }
 `
 
-const CheckBoxLabel = styled.label`
-  border-color: ${Color.white};
+const CheckBoxLabel = styled.label<GlobalStyledProps>`
+  border-color: ${props => (props.lightMode ? Color.black : Color.white)};
   border-radius: 17px;
   border-style: solid;
   border-width: 2px;
   cursor: pointer;
   display: flex;
-  height: 23px;
+  height: 25px;
   width: 42px;
   &::after {
-    background: ${Color.white};
-    border-color: ${Color.white};
+    background: ${props => (props.lightMode ? Color.black : Color.white)};
+    border-color: ${props => (props.lightMode ? Color.black : Color.white)};
     border-radius: 50%;
-    border-style: solid;white
-    border-width: 3px;
+    border-style: solid;
     content: '';
     display: block;
     height: 11px;
@@ -57,7 +56,6 @@ const CheckBox = styled.input`
       border-color: ${Color.white};
       border-radius: 50%;
       border-style: solid;
-      border-width: 3px;
       content: '';
       display: block;
       height: 11px;
@@ -76,13 +74,13 @@ const StyledLabel = styled.div`
 `
 
 export const Toggle = (props: ToggleProps): JSX.Element => {
-  const { label, 'data-testid': dataTestId } = props
+  const { label, 'data-testid': dataTestId, lightMode } = props
 
   return (
     <StyledDiv data-testid={dataTestId}>
       <div>
         <CheckBox id="checkbox" type="checkbox" aria-label="checkbox" />
-        <CheckBoxLabel htmlFor="checkbox" />
+        <CheckBoxLabel htmlFor="checkbox" lightMode={lightMode} />
       </div>
       {label && <StyledLabel>{label}</StyledLabel>}
     </StyledDiv>

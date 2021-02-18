@@ -8,7 +8,7 @@ describe('Layout', () => {
   const renderComponent = () =>
     render(
       <Layout>
-        <p>Content</p>
+        <p>{text}</p>
       </Layout>
     )
 

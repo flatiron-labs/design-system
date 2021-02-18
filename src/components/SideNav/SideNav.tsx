@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { useWindowWidth } from '@react-hook/window-size'
-import { Color, Font } from '~/styles'
+import { Breakpoint, Color, Font } from '~/styles'
 import { Icon } from '~/components/Icon'
 
 export interface StyledSideNavProps {
@@ -15,18 +15,18 @@ export interface SideNavProps extends StyledSideNavProps {
 }
 
 const StyledNav = styled.nav<StyledSideNavProps>`
-  background-color: ${Color.black};
   border: 4px;
   border-color: ${Color.greyDarkest};
   border-style: none solid none none;
   font-family: ${Font.firaCode};
-  height: 100%;
+  height: 100vh;
   left: 0;
-  transition: transform 0.3s ease-in-out;
+  padding-top: 30px;
+  transition: transform 3s ease-in-out;
+  width: 200px;
 }`
 
 const StyledBurgerContainer = styled.nav`
-  background-color: ${Color.black};
   border: 4px;
   border-color: ${Color.greyDarkest};
   border-style: none solid none none;
@@ -37,7 +37,7 @@ const StyledBurgerContainer = styled.nav`
   padding-top: 10px;
   top: 0;
   left: 0;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 2s ease-in-out;
   width: 60px;
 }`
 
@@ -46,7 +46,7 @@ const StyledBurger = styled(Icon.Hamburger)<SideNavProps>`
   width: 2rem;
   height: 2rem;
   cursor: pointer;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 2s ease-in-out;
 `
 
 export const SideNav = ({ children, ...props }: SideNavProps): JSX.Element => {
@@ -54,10 +54,10 @@ export const SideNav = ({ children, ...props }: SideNavProps): JSX.Element => {
   const windowWidth = useWindowWidth()
 
   useEffect(() => {
-    if (windowWidth < 600 === true) {
+    if (windowWidth < Breakpoint.sm) {
       setOpen(false)
     }
-    if (windowWidth < 600 === false) {
+    if (windowWidth > Breakpoint.sm) {
       setOpen(true)
     }
   }, [windowWidth, isOpen])
@@ -68,14 +68,15 @@ export const SideNav = ({ children, ...props }: SideNavProps): JSX.Element => {
 
   return (
     <>
-      {!isOpen && (
+      {isOpen ? (
+        <StyledNav {...props} isOpen={isOpen}>
+          <>{children}</>
+        </StyledNav>
+      ) : (
         <StyledBurgerContainer>
           <StyledBurger onClick={openSideNav} isOpen={isOpen} />
         </StyledBurgerContainer>
       )}
-      <StyledNav {...props} isOpen={isOpen}>
-        {isOpen && <>{children}</>}
-      </StyledNav>
     </>
   )
 }
