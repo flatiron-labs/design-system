@@ -8,45 +8,46 @@ export interface CheckboxProps {
 }
 
 const StyledDiv = styled.div`
-  display: flex;
   align-items: center;
+  display: flex;
   padding: 0.5rem;
 `
 
 const StyledLabel = styled.label`
-  padding-top: 2px;
+  cursor: pointer;
   padding-left: 2px;
+  padding-top: 2px;
 `
 
 const StyledInput = styled.input`
-  position: relative;
-  flex-shrink: 0;
-  width: 20px;
-  height: 20px;
-  appearance: none;
-  -webkit-appearance: none;
   -moz-appearance: none;
-  outline: none;
-  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
   border: 2px solid ${Color.turqDark};
+  cursor: pointer;
+  flex-shrink: 0;
+  height: 20px;
   margin: 3px !important;
+  outline: none;
+  position: relative;
+  width: 20px;
   :before {
-    content: ' ';
-    position: absolute;
-    top: 50%;
-    right: 50%;
-    bottom: 50%;
-    left: 50%;
-    transition: all .1s;
     background: ${Color.turqDark};
+    bottom: 50%;
+    content: ' ';
+    left: 50%;
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    transition: all .1s;
   }
   :checked:before {
-        top: 1px;
-        right: 1px;
-        bottom: 1px;
-        left: 1px;
-      }
-    }
+    bottom: 1px;
+    left: 1px;
+    right: 1px;
+    top: 1px;
+  }
+}
 `
 
 export const Checkbox = ({ children, ...props }: CheckboxProps): JSX.Element => {
