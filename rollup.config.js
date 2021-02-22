@@ -1,6 +1,7 @@
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import image from '@rollup/plugin-image'
+import copy from 'rollup-plugin-copy'
 import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 import typescript from 'rollup-plugin-typescript2'
 import { terser } from 'rollup-plugin-terser'
@@ -35,6 +36,9 @@ export default {
       // exclude: ['**/*.test.ts', '**/*.stories.ts', '**/*.test.tsx', '**/*.stories.tsx']
     }),
     image(),
+    copy({
+      targets: [{ src: 'src/assets/fonts', dest: 'assets/fonts' }]
+    }),
     terser(),
     analyze({ summaryOnly: true })
   ]
