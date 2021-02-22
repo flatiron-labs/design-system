@@ -23,6 +23,7 @@ export default {
       sourcemap: true
     }
   ],
+  external: [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})],
   plugins: [
     peerDepsExternal(),
     resolve(),
@@ -31,38 +32,10 @@ export default {
       useTsconfigDeclarationDir: true,
       clean: true,
       rollupCommonJSResolveHack: true,
-      exclude: ['**/*.test.ts', '**/*.stories.ts', '**/*.test.d.ts', '**/*.stories.d.ts']
+      exclude: ['**/*.test.ts', '**/*.stories.ts', '**/*.test.tsx', '**/*.stories.tsx']
     }),
-    // typescript({
-    //   clean: true,
-    //   rollupCommonJSResolveHack: true,
-    //   exclude: ['**/*.test.ts', '**/*.stories.ts', '**/*.test.d.ts', '**/*.stories.d.ts']
-    // }),
     image(),
     terser(),
     analyze({ summaryOnly: true })
   ]
-
-  //   // external: Object.keys(pkg.dependencies || {}).concat(Object.keys(pkg.peerDependencies || {})),
-  //   // plugins: [
-  //   //   autoExternal({
-  //   //     builtins: false,
-  //   //     dependencies: false,
-  //   //     peerDependencies: false
-  //   //   }),
-  //   //   image(),
-  //   //   resolve({
-  //   //     jsnext: true,
-  //   //     main: true,
-  //   //     browser: true
-  //   //   }),
-  //   //   typescript({
-  //   //     clean: true,
-  //   //     rollupCommonJSResolveHack: true,
-  //   //     exclude: ['**/*.test.ts', '**/*.stories.ts', '**/*.test.d.ts', '**/*.stories.d.ts']
-  //   //   }),
-  //   //   commonjs(),
-  //   //   terser(),
-  //   //   analyze({ summaryOnly: true })
-  //   // ]
 }
