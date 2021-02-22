@@ -31,8 +31,8 @@ export default {
     typescript({
       useTsconfigDeclarationDir: true,
       clean: true,
-      rollupCommonJSResolveHack: true,
-      exclude: ['**/*.test.ts', '**/*.stories.ts', '**/*.test.tsx', '**/*.stories.tsx']
+      rollupCommonJSResolveHack: true
+      // exclude: ['**/*.test.ts', '**/*.stories.ts', '**/*.test.tsx', '**/*.stories.tsx']
     }),
     image(),
     terser(),
