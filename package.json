@@ -6,14 +6,12 @@
   "repository": "https://github.com/flatiron-labs/design-system.git",
   "author": "Tom Milewski <tmilewski@gmail.com>",
   "license": "MIT",
-  "main": "build/cjs/index.js",
-  "module": "build/esm/index.js",
+  "main": "build/cjs",
+  "module": "build/esm",
+  "types": "build/types/index.d.ts",
   "source": "src/index.ts",
-  "types": "src/esm/index.d.ts",
   "files": [
-    "build/**/*",
-    "!build/**/*.stories.d.ts",
-    "!build/**/*.test.d.ts"
+    "build/"
   ],
   "scripts": {
     "build": "rm -rf build/* && rollup -c",
