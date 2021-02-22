@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Font } from '~/styles'
+import { Color } from '~/styles'
 
 export type ButtonSize = 'sm' | 'md' | 'lg' | undefined
 
@@ -10,14 +10,11 @@ export interface StyledButtonProps {
 }
 
 export interface ButtonProps extends StyledButtonProps, React.ButtonHTMLAttributes<HTMLButtonElement> {
-  'data-testid'?: string
   children?: React.ReactNode
   onClick?(): React.MouseEventHandler<HTMLButtonElement>
 }
 
 const StyledButton = styled.button<StyledButtonProps>`
-  font-family: ${Font.firaCode};
-  background-color: black;
   border-radius: 0;
   text-align: center;
   font-weight: bold;
@@ -25,12 +22,10 @@ const StyledButton = styled.button<StyledButtonProps>`
   ${props =>
     props.primary &&
     `
-      border: 2px solid rgba(12, 50, 62, 1);
-      color: rgba(0, 239, 225, 1);
-
+      border: 2px solid ${Color.black};
       &:focus,
       &:hover {
-        border-color: rgba(0, 239, 225, 1);
+        border: 2px solid ${Color.turq};
         outline: 0;
       }
     `}
@@ -38,14 +33,13 @@ const StyledButton = styled.button<StyledButtonProps>`
   ${props =>
     !props.primary &&
     `
-      border: 2px solid rgba(0, 239, 225, 1);
-      color: white;
-
+      border: 2px solid ${Color.turq};
+      color: ${Color.white};
       &:focus,
       &:hover {
-        border-color: rgba(0, 239, 225, 1);
-        background-color: rgba(0, 239, 225, 1);
-        color: rgba(12, 50, 62, 1);
+        border-color:${Color.turq};
+        background-color: ${Color.turq};
+        color: ${Color.black};
         outline: 0;
       }
     `}
