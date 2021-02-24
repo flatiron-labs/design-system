@@ -19,7 +19,6 @@ const StyledButton = styled.button`
 const StyledSidebar = styled(Grid)`
   border-right: 1px ${Color.greyDarkest} solid;
   padding: 62px 0 0 0;
-  transition: all 195ms cubic-bezier(0.4, 0, 0.6, 1) 0ms;
 `
 
 const StyledLink = styled.a<StyledLinkProps>`
@@ -68,7 +67,7 @@ const StyledAvatar = styled(Avatar)`
   margin: 0 auto 40px;
 `
 
-export interface SidebarProps {
+export interface SidebarProps extends StyledLinkProps {
   expanded?: boolean
   onExpand(): void
   lg?: boolean | GridSize
