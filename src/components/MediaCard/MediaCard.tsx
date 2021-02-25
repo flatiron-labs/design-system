@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Color } from '~/styles'
 import { Button } from '~/components/Button'
 import { Grid } from '~/components/Grid'
-import { Heading } from '~/components/Heading'
+import { H4, P } from '~/components/Typography'
 
 export interface MediaCardProps {
   image: string | JSX.Element
@@ -47,10 +47,8 @@ export const MediaCard = ({ title, image, description, cta, onClick }: MediaCard
 
     <Content>
       <Grid item>
-        <Heading bold h4 color={Color.turq}>
-          {title}
-        </Heading>
-        <p>{description}</p>
+        <H4 style={{ color: Color.turq }}>{title}</H4>
+        <P>{description}</P>
       </Grid>
 
       {React.isValidElement(cta) ? (
