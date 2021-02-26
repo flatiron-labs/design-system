@@ -1,8 +1,20 @@
 import React from 'react'
+import styled from 'styled-components'
 import { Grid, Toggle } from '~/components'
+import { Media } from '~/styles'
+
+const Container = styled(props => (
+  <Grid container direction="row" justify="space-between" alignItems="center" {...props} />
+))`
+  min-height: 72px;
+
+  ${Media.sm} {
+    min-height: 40px;
+  }
+`
 
 export const Header = (): JSX.Element => (
-  <Grid container direction="row" justify="space-between" alignItems="center">
+  <Container>
     <svg width="220" height="33" viewBox="0 0 220 33" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g clipPath="url(#clip0)">
         <path d="M9.63669 0L0 33H4.25148L13.8882 0H9.63669Z" fill="#00EFE1" fillOpacity="0.95" />
@@ -60,5 +72,5 @@ export const Header = (): JSX.Element => (
     </svg>
 
     <Toggle label="new student home experience" />
-  </Grid>
+  </Container>
 )
