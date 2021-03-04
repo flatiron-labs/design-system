@@ -16,6 +16,10 @@ import { Twitter } from './Twitter'
 import { Youtube } from './Youtube'
 import { Facebook } from './Facebook'
 import { Instagram } from './Instagram'
+import { PinkOverlay } from '../OverlayCard/Overlays/PinkOverlay'
+import { TurqOverlay } from '../OverlayCard/Overlays/TurqOverlay'
+import { PurpleOverlay } from '../OverlayCard/Overlays/PurpleOverlay'
+import { YellowOverlay } from '../OverlayCard/Overlays/YellowOverlay'
 import { IconComponent } from './Icon'
 
 export const Icon: Record<string, IconComponent> = {
@@ -36,5 +40,9 @@ export const Icon: Record<string, IconComponent> = {
   Twitter,
   Youtube,
   Facebook,
-  Instagram
+  Instagram,
+  PinkOverlay,
+  TurqOverlay,
+  PurpleOverlay,
+  YellowOverlay
 }
