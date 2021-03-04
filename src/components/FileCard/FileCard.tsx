@@ -22,7 +22,7 @@ const Container = styled(props => <Grid container alignItems="center" justify="c
   padding-top: 15px;
   position: relative;
 `
-const StyledGrid = styled(props => <Grid container item xs={12} {...props} />)`
+const StyledGrid = styled(props => <Grid container item {...props} />)`
   border: 2px solid ${Color.greyDarkest};
   padding: 5px 20px;
 `
@@ -38,7 +38,7 @@ const StyledLegend = styled.p`
   font-weight: bold;
 `
 
-const StyledGridItem = styled(props => <Grid container item sm={12} md={props.tertiaryTitle ? 2 : 4} {...props} />)`
+const StyledGridItem = styled(Grid)`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -53,25 +53,28 @@ export const FileCard = ({
   secondaryDescription,
   tertiaryTitle,
   tertiaryDescription,
-  onClick
+  onClick,
+  ...props
 }: FileCardProps): JSX.Element => (
   <Container>
     <StyledGrid>
       {type && <StyledLegend>{type}</StyledLegend>}
-      <StyledGridItem>{title ? <H4>{title}</H4> : <H4>No Upload</H4>}</StyledGridItem>
+      <StyledGridItem container item sm={12} md={4} {...props}>
+        {title ? <H4>{title}</H4> : <H4>No Upload</H4>}
+      </StyledGridItem>
       {(secondaryTitle || secondaryDescription) && (
-        <StyledGridItem tertiaryTitle={tertiaryTitle}>
+        <StyledGridItem container item sm={12} md={tertiaryTitle ? 2 : 4} {...props}>
           <P>{secondaryTitle}</P>
           <P>{secondaryDescription}</P>
         </StyledGridItem>
       )}
       {(tertiaryTitle || tertiaryDescription) && (
-        <StyledGridItem tertiaryTitle={tertiaryTitle}>
+        <StyledGridItem container item sm={12} md={tertiaryTitle ? 2 : 4} {...props}>
           <P>{tertiaryTitle}</P>
           <P>{tertiaryDescription}</P>
         </StyledGridItem>
       )}
-      <StyledGridItem alignItems="flex-end">
+      <StyledGridItem container item sm={12} md={4} {...props} alignItems="flex-end">
         {React.isValidElement(cta) ? (
           cta
         ) : (

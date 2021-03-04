@@ -1,7 +1,7 @@
 import React from 'react'
 import { Story, Meta } from '@storybook/react'
 import { Page } from '.'
-import { TextCard, Grid, Section, OverlayCard, FileCard } from '~/components'
+import { Grid, Section, OverlayCard, FileCard, MainHeader } from '~/components'
 
 export default {
   title: 'Composites/Page'
@@ -9,12 +9,8 @@ export default {
 
 const Template: Story = () => (
   <Page style={{ minHeight: '100vh' }}>
-    <Section title="Personal Information">
-      <Grid container spacing={3}>
-        <TextCard label="Full Name" value="John Smith" />
-        <TextCard label="Course" value="Software Engineering" />
-        <TextCard label="Cohort" value="Fall 2021" />
-      </Grid>
+    <Section minHeight="50px">
+      <MainHeader secondarySubheader="Fall 2020" subheader="Software Engineering" header="Welcome Back John Smith!" />
     </Section>
 
     <Section title="Links">
