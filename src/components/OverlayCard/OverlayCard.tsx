@@ -8,10 +8,10 @@ import { YellowOverlay } from './Overlays/YellowOverlay'
 import { PurpleOverlay } from './Overlays/PurpleOverlay'
 import { Color, Font } from '~/styles'
 
-type BackgroundType = 'turq' | 'pink' | 'yellow' | 'purple'
+export type OverlayCardBackgroundOptions = 'turq' | 'pink' | 'yellow' | 'purple'
 
 export interface OverlayCardProps {
-  background: BackgroundType
+  background: OverlayCardBackgroundOptions
   children?: React.ReactNode
   title?: string
   cta?: string | JSX.Element
