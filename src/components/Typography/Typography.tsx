@@ -1,38 +1,25 @@
 import styled from 'styled-components'
-import { Font } from '~/styles'
 
-interface HeadingProps extends React.HTMLProps<HTMLHeadingElement> {
-  fontSize?: string
-}
-
-const base = {
-  header: `
-    font-family: ${Font.firaCode}, monospace;
-    font-weight: bold;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  `
-}
 const H1 = styled.h1`
-  ${base.header}
-  font-size: 1.65em;
+  ${props => props.theme.typography.h1}
 `
-const H2 = styled.h2<HeadingProps>`
-  ${base.header}
-  font-size: ${props => (props.fontSize ? props.fontSize : '3.3rem')};
+const H2 = styled.h2`
+  ${props => props.theme.typography.h2}
 `
-const H3 = styled.h3<HeadingProps>`
-  ${base.header}
-  font-size: ${props => (props.fontSize ? props.fontSize : '1.65rem')};
+const H3 = styled.h3`
+  ${props => props.theme.typography.h3}
 `
-const H4 = styled.h4<HeadingProps>`
-  ${base.header}
-  font-size: ${props => (props.fontSize ? props.fontSize : '1.2rem')};
+const H4 = styled.h3`
+  ${props => props.theme.typography.h4}
+`
+const H5 = styled.h3`
+  ${props => props.theme.typography.h5}
+`
+const H6 = styled.h3`
+  ${props => props.theme.typography.h6}
 `
 const P = styled.p`
-  font-family: ${Font.firaCode}, monospace;
-  font-size: 1rem;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  ${props => props.theme.typography.subtitle1}
 `
-export { P, H1, H2, H3, H4 }
+
+export { P, H1, H2, H3, H4, H5, H6 }

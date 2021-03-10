@@ -1,6 +1,8 @@
 import { createGlobalStyle } from 'styled-components'
 import { normalize } from 'styled-normalize'
 
+export * from './theme'
+
 export const Color = {
   black: 'rgba(3, 4, 22, 1)',
   grey: 'rgba(214, 226, 231, 1)',
