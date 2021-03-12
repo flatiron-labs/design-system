@@ -1,4 +1,219 @@
-export const flatironTheme = {
+export type Theme = {
+  theme: {
+    fonts: Record<string, unknown>
+    breakpoints: {
+      keys: Array<string>
+      values: {
+        xs: number
+        sm: number
+        md: number
+        lg: number
+        xl: number
+      }
+    }
+    colors: {
+      common: {
+        black: string
+        white: string
+        blackLight: string
+        turq: string
+        turqDark: string
+        yellow: string
+        orange: string
+        pink: string
+        blue: string
+        purple: string
+        green: string
+      }
+      error: {
+        light: string
+        main: string
+        dark: string
+        contrastText: string
+      }
+      warning: {
+        light: string
+        main: string
+        dark: string
+        contrastText: string
+      }
+      info: {
+        light: string
+        main: string
+        dark: string
+        contrastText: string
+      }
+      success: {
+        light: string
+        main: string
+        dark: string
+        contrastText: string
+      }
+      grey: {
+        '50': string
+        '100': string
+        '200': string
+        '300': string
+        '400': string
+        '500': string
+        '600': string
+        '700': string
+        '800': string
+        '900': string
+      }
+    }
+    typography: {
+      fontFamily: string
+      fontSize: number
+      fontWeightLight: number
+      fontWeightRegular: number
+      fontWeightMedium: number
+      fontWeightBold: number
+      h1: {
+        fontFamily: string
+        fontWeight: number
+        fontSize: string
+        lineHeight: number
+        letterSpacing: string
+      }
+      h2: {
+        fontFamily: string
+        fontWeight: number
+        fontSize: string
+        lineHeight: number
+        letterSpacing: string
+      }
+      h3: {
+        fontFamily: string
+        fontWeight: number
+        fontSize: string
+        lineHeight: number
+        letterSpacing: string
+      }
+      h4: {
+        fontFamily: string
+        fontWeight: number
+        fontSize: string
+        lineHeight: number
+        letterSpacing: string
+      }
+      h5: {
+        fontFamily: string
+        fontWeight: number
+        fontSize: string
+        lineHeight: number
+        letterSpacing: string
+      }
+      h6: {
+        fontFamily: string
+        fontWeight: number
+        fontSize: string
+        lineHeight: number
+        letterSpacing: string
+      }
+      subtitle1: {
+        fontFamily: string
+        fontWeight: number
+        fontSize: string
+        lineHeight: number
+        letterSpacing: string
+      }
+      subtitle2: {
+        fontFamily: string
+        fontWeight: number
+        fontSize: string
+        lineHeight: number
+        letterSpacing: string
+      }
+      body1: {
+        fontFamily: string
+        fontWeight: number
+        fontSize: string
+        lineHeight: number
+        letterSpacing: string
+      }
+      body2: {
+        fontFamily: string
+        fontWeight: number
+        fontSize: string
+        lineHeight: number
+        letterSpacing: string
+      }
+      button: {
+        fontFamily: string
+        fontWeight: number
+        fontSize: string
+        lineHeight: number
+        letterSpacing: string
+        textTransform: string
+      }
+    }
+    transitions: {
+      easing: {
+        easeInOut: string
+        easeOut: string
+        easeIn: string
+        sharp: string
+      }
+      duration: {
+        shortest: number
+        shorter: number
+        short: number
+        standard: number
+        complex: number
+        enteringScreen: number
+        leavingScreen: number
+      }
+    }
+    space: {
+      px: string
+      0: string
+      0.5: string
+      1: string
+      1.5: string
+      2: string
+      2.5: string
+      3: string
+      3.5: string
+      4: string
+      5: string
+      6: string
+      7: string
+      8: string
+      9: string
+      10: string
+      12: string
+      14: string
+      16: string
+      20: string
+      24: string
+      28: string
+      32: string
+      36: string
+      40: string
+      44: string
+      48: string
+      52: string
+      56: string
+      60: string
+      64: string
+      72: string
+      80: string
+      96: string
+    }
+    zIndex: {
+      mobileStepper: number
+      speedDial: number
+      appBar: number
+      drawer: number
+      modal: number
+      snackbar: number
+      tooltip: number
+    }
+  }
+}
+
+export const flatironTheme: Theme = {
   theme: {
     fonts: { firaCode: 'Fira Code', gotcha: 'Gotcha' },
     breakpoints: {

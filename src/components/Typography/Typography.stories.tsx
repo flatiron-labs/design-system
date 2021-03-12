@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { Story, Meta } from '@storybook/react'
 import { H1, H2, H3, H4 } from '.'
-import { ThemeContext } from '~/components/Container'
+import { ThemeContext } from '~/styles'
 
 export default {
   title: 'Typography',

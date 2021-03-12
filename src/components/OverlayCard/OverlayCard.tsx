@@ -23,7 +23,7 @@ export interface OverlayCardProps
 }
 
 const Container = styled(props => (
-  <Grid alignItems="center" justify="center" container item xs={10} sm={5} md={3} {...props} />
+  <Grid alignItems="center" justify="center" container item xs={12} sm={6} md={4} {...props} />
 ))`
   padding: 10px;
 `
